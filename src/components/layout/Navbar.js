@@ -92,7 +92,7 @@ export default function Navbar({ title = 'B. Lyn Design & Co' }) {
           </div>
         </div>
 
-        <ScrollProgress />
+        {/* <ScrollProgress /> */}
 
         {/* Mobile full-screen menu */}
         <div

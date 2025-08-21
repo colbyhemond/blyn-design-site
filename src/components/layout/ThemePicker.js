@@ -40,7 +40,7 @@ const themes = [
   ]
 
 const ThemePicker = () => {
-    const [currentTheme, setCurrentTheme] = useState('light')
+    const [currentTheme, setCurrentTheme] = useState('blyn')
 
     useEffect(() => {
         const theme = document.querySelector('#theme-wrapper').getAttribute('data-theme')
