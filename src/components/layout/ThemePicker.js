@@ -46,13 +46,15 @@ const ThemePicker = () => {
         const theme = document.querySelector('#theme-wrapper').getAttribute('data-theme')
         const savedTheme = window.localStorage.getItem('theme')
 
-        if (theme) {
-            if (savedTheme) {
-                setCurrentTheme(savedTheme)
-            } else {
-                setCurrentTheme(theme)
-            }
-        }
+        // if (theme) {
+        //     if (savedTheme) {
+        //         setCurrentTheme(savedTheme)
+        //     } else {
+        //         setCurrentTheme(theme)
+        //     }
+        // }
+
+        setCurrentTheme('blyn')
         
         
         
