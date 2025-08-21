@@ -36,6 +36,7 @@ const themes = [
     {title: 'Dim', value: 'dim'},
     {title: 'Nord', value: 'nord'},
     {title: 'Sunset', value: 'sunset'},
+    {title: 'B. Lyn Design', value: 'blyn'},
   ]
 
 const ThemePicker = () => {

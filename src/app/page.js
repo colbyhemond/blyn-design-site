@@ -1,60 +1,22 @@
 import Hero from "../components/Hero";
-import BlogHero from "../components/blog/BlogHero";
-import LatestPosts from "../components/blog/LatestPosts";
-import CallToActionSection from "../components/calltoaction/CallToActionSection";
-import { client } from "../sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
+import ServicesGrid from '@/components/ServicesGrid'
+import FeaturedProjects from '@/components/FeaturedProjects'
+import ProcessSteps from '@/components/ProcessSteps'
+import CommunitiesStrip from '@/components/CommunitiesStrip'
+import { CTABand } from '@/components/CTABand'
 
-
-const HOME_QUERY = `*[_type == "homePage"][0]{..., showcasePost->{..., author->}, calltoaction}`;
-const options = { next: { revalidate: 30 } };
-const { projectId, dataset } = client.config();
-  const urlFor = (source) =>
-    projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset }).image(source)
-      : null;
-    
 const Home = async () => {
-  let homeContent = await client.fetch(HOME_QUERY, {}, options);
-
-  if (!homeContent) {
-    homeContent = {
-      showcasePost: {
-        title: "Welcome to your blog!",
-        excerpt: "Don't worry, this is just some placeholder content. It will all be replaced with your own content once you start adding posts. I hope you enjoy your new blog!",
-        image: {
-          url: "/placeholder.png",
-          alt: "Placeholder image",
-        },
-        publishedAt: new Date().toISOString(),
-        author: {
-          name: "Colby Hemond",
-          image: "/colby.jpeg",
-        },
-        slug: {
-          current: "/",
-        },
-      }
-    }
   
-  } else {
-    homeContent.showcasePost.image.url = urlFor(homeContent.showcasePost.image).url();
-    homeContent.showcasePost.author.image = urlFor(homeContent.showcasePost.author.image).url();
-  }
-
-  const calltoaction = {
-    text: homeContent?.calltoaction?.ctatext || "See what else we have to say!",
-    button: {
-      href: homeContent?.calltoaction?.buttonlink || "/blog",
-      text: homeContent?.calltoaction?.buttontext || "Go to Blog",
-    },
-  };
-
   return (
     <div>
-      <BlogHero post={homeContent.showcasePost} />
-      <LatestPosts />
-      <CallToActionSection text={calltoaction.text} button={calltoaction.button}/>
+      <Hero/>
+      {/* <LatestPosts /> */}
+      {/* <CallToActionSection text={calltoaction.text} button={calltoaction.button}/> */}
+      <ProcessSteps />
+      <ServicesGrid  />
+      <FeaturedProjects type="Senior Living" limit={3} featuredOnly={true} />
+      {/* <CommunitiesStrip communities={["Norton Shores", "Bloomfield Hills" ]} /> */}
+      <CTABand />
     </div>
   );
 }

@@ -9,8 +9,30 @@ export default {
     require('daisyui'),
     require('@tailwindcss/typography')
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        "libre-baskerville": ['var(--font-libre-baskerville)', 'serif'],
+        "figtree": ['var(--font-figtree)', 'sans-serif'],
+      },
+      
+    },
+  },
   daisyui: {
     themes: [
+      {
+        "blyn": {
+          "primary":   "#335c67", // deep teal
+          "secondary": "#9e2a2b", // burgundy
+          "accent":    "#e09f3e", // golden accent
+          "neutral":   "#540b0e", // dark wine
+          "base-100":  "#faf9f9", // soft beige background
+          "info":      "#2563EB",
+          "success":   "#16A34A",
+          "warning":   "#F59E0B",
+          "error":     "#DC2626",
+        },
+      },
       "light",
       "dark",
       "cupcake",
@@ -43,6 +65,7 @@ export default {
       "dim",
       "nord",
       "sunset",
+      
     ],
   }
 };

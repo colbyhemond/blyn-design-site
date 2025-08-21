@@ -7,6 +7,20 @@ import { client } from "../sanity/client";
 import ThemeWrapper from "../components/layout/ThemeWrapper";
 import Layout from "../components/layout/Layout";
 
+//import Libre Baskerville from  next google fonts
+import { Libre_Baskerville, Figtree } from 'next/font/google';
+const libreBaskerville = Libre_Baskerville({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-libre-baskerville',
+});
+
+const figtree = Figtree({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-figtree',
+});
+
 
 const SETTINGS_QUERY = `*[_type == "settings"][0]`;
 const options = { next: { revalidate: 30 } };
@@ -35,7 +49,7 @@ export default async function RootLayout({ children }) {
   const theme = settings?.theme || "light";
   
   return (
-    <html lang="en" className="bg-neutral">
+    <html lang="en" className={`${libreBaskerville.variable} ${figtree.variable}  bg-neutral font-figtree`}>
       <FathomAnalytics />
       
       <body className="bg-base-100">

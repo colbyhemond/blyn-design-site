@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-primary {
+  font-family: 'var(--font-libre-baskerville)', serif;
+}
+
+.font-secondary {
+  font-family: 'var(--font-figtree)', sans-serif;
+}
+
+

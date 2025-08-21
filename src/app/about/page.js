@@ -1,62 +1,91 @@
-import { PortableText } from "next-sanity"
-import { client } from "../../sanity/client";
+// app/about/page.jsx
+import { client } from '@/sanity/client'
+import Portable from '@/components/Portable'
+import AboutHero from '@/components/AboutHero'
+import CredentialsStrip from '@/components/CredentialsStrip'
+import Image from 'next/image'
+import { urlForImage } from '@/sanity/client'
 
-const ABOUT_QUERY = `*[_type == "aboutPage"][0]`;
-const SETTINGS_QUERY = `*[_type == "settings"][0]`;
-const options = { next: { revalidate: 30 } };
+const aboutQuery = `*[_type=="aboutPage"][0]{
+  hero{ headline, subhead, image },
+  intro,
+  content,
+  headshot,
+  credentials,
+  cta{ label, href },
+  seo
+}`
 
-const placeholderContent = {
-    title: "About",
-    body: [
-        {
-            _type: "block",
-            children: [
-                {
-                    _type: "span",
-                    text: "This is the about page. You can change this text in your settings.",
-                },
-            ],
-        },
-    ],
-};
+export const revalidate = 60
 
-export const metadata = async () => {
-    let content = await client.fetch(ABOUT_QUERY, {}, options);
-    let settings = await client.fetch(SETTINGS_QUERY, {}, options);
+export default async function AboutPage() {
+  const data = await client.fetch(aboutQuery)
 
-    if (!content) {
-        content = placeholderContent
-    }
+  // Fallbacks so the page never looks empty
+  const title = data?.title || 'About B. Lyn Design & Co'
+  const hero = {
+    headline: data?.hero?.headline || 'Thoughtful design for senior living.',
+    subhead:
+      data?.hero?.subhead ||
+      'With a unique blend of healthcare and design expertise, we create warm, functional spaces where safety meets style.',
+    imageUrl:
+      data?.hero?.image?.asset?.url ||
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=80',
+    imageAlt: data?.hero?.image?.alt || 'Warm, functional interior space',
+    headshot: data?.headshot?.asset
+    ? urlForImage(data.headshot.asset)
+        .width(300)
+        .height(300)
+        .fit('crop')
+        .url()
+    : null,
+  }
 
-    if (!settings) {
-        settings = {
-            title: "Blog",
-        }
-    }
-
-    return ({
-    title: content.title,
-    description: `Learn all about the writers behind the blog at ${settings.title}.`,
-  });
-}
-
-const AboutPage = async () => {
-    let content = await client.fetch(ABOUT_QUERY, {}, options);
-
-    if (!content) {
-        content = placeholderContent
-    }
-
-    return (<>
-    <main className="mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
-        <div className="prose mx-auto h-screen">
-          <h1 className="text-4xl font-bold mb-8 text-center">{content.title}</h1>
-          <div className="mx-5">
-            {Array.isArray(content.body) && <PortableText value={content.body} />}
-          </div>
+  return (
+    <>
+      <AboutHero hero={hero} />
+      <section className="container mx-auto px-4 py-12 grid lg:grid-cols-3 gap-10">
+        <div className="lg:col-span-2 prose max-w-none">
+          {/* Main About content from Sanity */}
+          <Portable value={data?.content} />
         </div>
-    </main>
-    </>)
-}
+        <aside className="lg:col-span-1">
+          <div className="card bg-base-100 shadow-md">
+            <figure className="px-6 pt-6">
+                {hero.headshot && (
+                    <Image
+                        width={300}
+                        height={300}
+                        priority
+                        unoptimized
+                        loading="eager"
+                        fetchPriority="high"
+                        src={hero.headshot}
+                        alt={'Portrait of Brandi Barriger, owner of B. Lyn Design & Co'}
+                        className="rounded-xl object-cover w-full"
+                    />
+                )}
+            </figure>
+            <div className="card-body">
+              <h3 className="card-title  font-libre-baskerville">Brandi Barriger</h3>
+              <p className="opacity-80">
+                Owner, B. Lyn Design &amp; Co
+              </p>
+              <div className="divider my-3" />
+              <ul className="space-y-2 text-sm">
+                <li><span className="font-medium">Email:</span> <a className="link" href="mailto:brandi@blyndesign.com">brandi@blyndesign.com</a></li>
+                <li><span className="font-medium">Phone:</span> <a className="link" href="tel:9895130354">989-513-0354</a></li>
+                <li><span className="font-medium">Instagram:</span> <a className="link" href="https://instagram.com/blyndesignco" target="_blank" rel="noreferrer">@blyndesignco</a></li>
+              </ul>
+            </div>
+          </div>
 
-export default AboutPage
+          {/* Optional credibility band */}
+          <div className="mt-6">
+            <CredentialsStrip />
+          </div>
+        </aside>
+      </section>
+    </>
+  )
+}

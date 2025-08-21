@@ -39,6 +39,8 @@ export const structure = (S) =>
                 .documentId('aboutPage')
                 .title('About Page')
           ),
-          S.documentTypeListItem("post").title("Posts"),
-          S.documentTypeListItem("person").title("People"),
+          S.documentTypeListItem("service").title("Services"),
+          S.documentTypeListItem("project").title("Projects"),
+          // S.documentTypeListItem("post").title("Posts"),
+          // S.documentTypeListItem("person").title("People"),
         ])

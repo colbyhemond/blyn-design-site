@@ -7,9 +7,15 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'cdn.sanity.io',
             port: '',
-            pathname: '/images/*/*/**',
-            search: '',
+            pathname: '/images/*/*/**'
           },
+          {
+            protocol: 'https',
+            hostname: 'images.unsplash.com',
+            port: '',
+            pathname: '/**'
+          },
+          
         ],
       },
 };

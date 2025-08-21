@@ -16,7 +16,7 @@ const Layout = ({children, settings}) => {
     // Parse pathname to determine if we are on the admin page
     const isAdminPage = pathname.startsWith('/admin')
 
-    const title = settings?.title || "Quickstart";
+    const title = settings?.title || "B. Lyn Design & Co";
     const socialLinks = settings?.socialLinks || [];
 
     if (isAdminPage) {

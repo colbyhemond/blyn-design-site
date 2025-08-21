@@ -123,7 +123,6 @@ export default async function Post({params}) {
             {Array.isArray(post.body) && <PortableText value={post.body} components={portableTextComponents} />}
           </div>
         </article>
-        {console.log(post)};
         
         {post.calltoaction && 
           <CallToActionSection text={post.calltoaction.ctatext} button={{href: post.calltoaction.buttonlink, text: post.calltoaction.buttontext}} />
