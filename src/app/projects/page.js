@@ -2,6 +2,7 @@
 import { client } from '@/sanity/client'
 import GalleryFilter from '@/components/GalleryFilter'
 import ProjectCard from '@/components/ProjectCard'
+import { CTABand } from '@/components/CTABand'
 
 const projectsQuery = `*[_type=="project"] | order(featured desc, completedAt desc, title asc){
   title,
@@ -19,8 +20,8 @@ export default async function ProjectsPage({ searchParams }) {
   const projects = await client.fetch(projectsQuery)
   const filtered = type === 'All' ? projects : projects.filter(p => p.projectType === type)
 
-  return (
-    <section className="container mx-auto px-4 py-12 mt-8">
+  return (<>
+    <section className="container mx-auto px-4 py-12 mt-8 md:pt-24">
       <header className="mb-6">
         <h1 className="text-4xl font-bold  font-libre-baskerville uppercase">Gallery</h1>
         <p className="opacity-80 mt-2">
@@ -40,5 +41,12 @@ export default async function ProjectsPage({ searchParams }) {
         <p className="opacity-70 mt-6">No projects found for this filter.</p>
       )}
     </section>
+    <CTABand
+      heading={"Your space is our next transformation"}
+      subheading={"Reach out today to discuss your project and discover how our expert design services can bring your vision to life."}
+      buttonLink={"/contact"}
+      buttonText={"Get in Touch"}
+    />
+    </>
   )
 }

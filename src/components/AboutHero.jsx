@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function AboutHero({ hero }) {
   return (
-    <section className="relative min-h-[50vh] md:min-h-[60vh] isolate mt-8 pt-24">
+    <section className="relative min-h-[50vh] md:min-h-[60vh] isolate mt-6 pt-24">
       <div className="absolute inset-0 -z-10">
         <Image
           src={hero.imageUrl}

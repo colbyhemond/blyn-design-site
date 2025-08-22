@@ -5,6 +5,7 @@ import { Menu, X } from 'react-feather'
 import { useEffect, useRef, useState } from 'react'
 import ScrollProgress from './ScrollProgress'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const translateShow = '-translate-y-0'
 const translateHide = '-translate-y-[120vh]'
@@ -47,8 +48,9 @@ export default function Navbar({ title = 'B. Lyn Design & Co' }) {
         {/* Desktop */}
         <div className="hidden md:flex justify-between items-center p-5 bg-base-100/95 backdrop-blur pointer-events-auto border-b">
           <div className="hidden md:flex md:flex-1">
-            <Link href="/" className="btn btn-ghost text-xl">
-              {title}
+            <Link href="/" className="absolute top-1">
+              {/* {title} */}
+              <Image src="/logo.png" alt="B. Lyn Design & Co" width={200} height={200} className="object-contain"/>
             </Link>
           </div>
           <nav className="hidden md:flex md:flex-none">
@@ -77,14 +79,18 @@ export default function Navbar({ title = 'B. Lyn Design & Co' }) {
         {/* Mobile bar */}
         <div className="md:hidden w-full pointer-events-auto">
           <div className="w-full p-5 text-base-content flex justify-between items-center bg-base-100/95 backdrop-blur border-b">
-            <Link href="/" onClick={closeMenu} className="btn btn-ghost text-xl">
+            {/* <Link href="/" onClick={closeMenu} className="btn btn-ghost text-xl">
               {title}
+            </Link> */}
+            <Link href="/" onClick={closeMenu} className="absolute top-0 ">
+              {/* {title} */}
+              <Image src="/logo.png" alt="B. Lyn Design & Co" width={90} height={90} className="object-contain "/>
             </Link>
             <button
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
-              className="btn btn-ghost btn-circle"
+              className="btn btn-ghost btn-circle ml-auto"
               onClick={toggleMenu}
             >
               {isOpen ? <X /> : <Menu />}

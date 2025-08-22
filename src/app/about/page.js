@@ -5,6 +5,7 @@ import AboutHero from '@/components/AboutHero'
 import CredentialsStrip from '@/components/CredentialsStrip'
 import Image from 'next/image'
 import { urlForImage } from '@/sanity/client'
+import { CTABand } from '@/components/CTABand'
 
 const aboutQuery = `*[_type=="aboutPage"][0]{
   hero{ headline, subhead, image },
@@ -86,6 +87,12 @@ export default async function AboutPage() {
           </div>
         </aside>
       </section>
+      <CTABand
+        heading="Ready to transform your space?"
+        subheading="Let's create a warm, functional environment together."
+        buttonLink="/contact"
+        buttonText="Get in Touch"
+      />
     </>
   )
 }

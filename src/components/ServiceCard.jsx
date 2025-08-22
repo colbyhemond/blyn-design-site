@@ -3,12 +3,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { CTABand } from './CTABand'
 
 export default function ServiceCard({ service }) {
   if (!service) return null
   const { title, slug, shortDescription, thumbUrl } = service
 
-  return (
+  return (<>
     <motion.article
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -32,5 +33,6 @@ export default function ServiceCard({ service }) {
         </div>
       </div>
     </motion.article>
+    </>
   )
 }

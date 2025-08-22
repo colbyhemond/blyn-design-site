@@ -4,6 +4,7 @@
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'react-feather'
+import { CTABand } from './CTABand'
 
 export default function ProjectDetailClient({ project }) {
   const dlgRef = useRef(null)
@@ -25,8 +26,8 @@ export default function ProjectDetailClient({ project }) {
   const prev = () => setIdx((i) => (i - 1 + images.length) % images.length)
   const next = () => setIdx((i) => (i + 1) % images.length)
 
-  return (
-    <section className="container mx-auto px-4 py-12">
+  return (<>
+    <section className="container mx-auto px-4 py-12 md:pt-32">
       <header className="max-w-3xl mb-6">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-3 mb-2">
           <h1 className="text-4xl font-bold  font-libre-baskerville">{project.title}</h1>
@@ -116,5 +117,12 @@ export default function ProjectDetailClient({ project }) {
         </>
       )}
     </section>
+    <CTABand
+      heading="Interested in working together?"
+      subheading="Let's create something amazing for your space."
+      buttonText="Get in Touch"
+      buttonLink="/contact"
+    />
+    </>
   )
 }

@@ -1,6 +1,7 @@
 // app/services/[slug]/page.jsx
 import { client } from '@/sanity/client'
 import Portable from '@/components/Portable'
+import { CTABand } from '@/components/CTABand'
 
 const serviceBySlugQuery = `*[_type=="service" && slug.current==$slug][0]{
   title,
@@ -27,8 +28,8 @@ export default async function ServiceDetailPage({ params }) {
     )
   }
 
-  return (
-    <section className="container mx-auto px-4 py-12">
+  return (<>
+    <section className="container mx-auto px-4 py-12 md:pt-32">
       <header className="max-w-3xl mb-6">
         <h1 className="text-4xl font-bold  font-libre-baskerville">{service.title}</h1>
         {service.shortDescription && <p className="opacity-80 mt-2">{service.shortDescription}</p>}
@@ -38,5 +39,12 @@ export default async function ServiceDetailPage({ params }) {
         <Portable value={service.body} />
       </div>
     </section>
+    <CTABand
+      heading="Ready to transform your space?"
+      subheading="Contact us today and let's bring your vision to life."
+      buttonText="Get in Touch"
+      buttonLink="/contact"
+    />
+    </>
   )
 }
