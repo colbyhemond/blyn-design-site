@@ -82,7 +82,7 @@ const Footer = ({
             </div>
           </div>
 
-          <div className="flex gap-4 items-center order-8 mx-auto md:mx-0 flex-0 min-w-48 justify-end">
+          <div className="flex gap-4 items-center order-8 mx-auto md:mx-0 flex-0 min-w-48 md:justify-end">
             {/* <ThemePicker /> */}
             <Link href="/admin" className="link link-hover">Admin</Link>
           </div>
