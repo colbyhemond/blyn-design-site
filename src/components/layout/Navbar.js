@@ -48,7 +48,7 @@ export default function Navbar({ title = 'B. Lyn Design & Co' }) {
         {/* Desktop */}
         <div className="hidden md:flex justify-between items-center p-5 bg-base-100/95 backdrop-blur pointer-events-auto border-b">
           <div className="hidden md:flex md:flex-1">
-            <Link href="/" className="absolute top-1">
+            <Link href="/" className="absolute top-1 drop-shadow-xl">
               {/* {title} */}
               <Image src="/logo.png" alt="B. Lyn Design & Co" width={200} height={200} className="object-contain"/>
             </Link>
