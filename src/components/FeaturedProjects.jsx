@@ -4,7 +4,6 @@ import ProjectCard from './ProjectCard'
 
 const projectsQuery = `
 *[_type=="project"
-  && (!defined($type) || projectType == $type)
   && (!defined($featuredOnly) || featured == $featuredOnly)
 ] | order(featured desc, completedAt desc, _createdAt desc)[0...$limit]{
   title,
@@ -18,7 +17,7 @@ const projectsQuery = `
 `
 
 export default async function FeaturedProjects({
-  title = 'Recent Work',
+  title = 'Featured Work',
   type,                 // e.g., "Senior Living" | "STR" | "Staging"
   featuredOnly,         // true to show only featured
   limit = 6,            // number of cards

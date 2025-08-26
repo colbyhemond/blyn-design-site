@@ -31,12 +31,21 @@ console.log('beforePhotos', project)
   const prev = () => setIdx((i) => (i - 1 + images.length) % images.length)
   const next = () => setIdx((i) => (i + 1) % images.length)
 
+  const getProjecTypeText = (type) => {
+    switch (type) {
+      case 'STR':
+        return 'Short-Term Rental'
+      default:
+        return type
+    }
+  }
+
   return (<>
     <section className="container mx-auto px-4 py-12 md:pt-32">
       <header className="max-w-3xl mb-6">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-3 mb-2">
           <h1 className="text-4xl font-bold  font-libre-baskerville">{project.title}</h1>
-          {project.projectType && <span className="badge badge-accent">{project.projectType}</span>}
+          {project.projectType && <span className="badge badge-accent">{getProjecTypeText(project.projectType)}</span>}
         </div>
         {project.summary && <p className="opacity-80">{project.summary}</p>}
         {(project.location || project.completedAt) && (

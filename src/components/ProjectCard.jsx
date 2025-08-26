@@ -16,6 +16,15 @@ export default function ProjectCard({ project }) {
     completedAt,
   } = project
 
+  const getProjecTypeText = (type) => {
+    switch (type) {
+      case 'STR':
+        return 'Short-Term Rental'
+      default:
+        return type
+    }
+  }
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 10 }}
@@ -38,7 +47,7 @@ export default function ProjectCard({ project }) {
         <div className="flex flex-col  items-start justify-between">
           <h3 className="card-title text-lg  font-libre-baskerville">{title}</h3>
           {projectType && (
-            <div className="badge badge-secondary">{projectType}</div>
+            <div className="badge badge-secondary">{getProjecTypeText(projectType)}</div>
           )}
         </div>
         {summary && <p className="text-sm opacity-80">{summary}</p>}
