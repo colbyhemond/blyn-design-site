@@ -37,22 +37,22 @@ export const metadata = async () => {
     description: settings?.description || "Transforming spaces with thoughtful design and craftsmanship.",
     keywords: settings?.keywords || "senior living, interior design, healthcare design, functional spaces, warm interiors",
     authors: [{ name: "Colby Hemond", url: "https://colbyhemond.com" }],
-    // openGraph: {
-    //   title: title,
-    //   description: settings?.description || "Transforming spaces with thoughtful design and craftsmanship.",
-    //   url: `https://${process.env.NEXT_PUBLIC_DOMAIN}`,
-    //   siteName: title,
-    //   images: [
-    //     {
-    //       url: settings?.ogImage?.asset?.url || "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=80",
-    //       width: 1200,
-    //       height: 630,
-    //       alt: "Warm, functional interior space",
-    //     },
-    //   ],
-    //   locale: 'en_US',
-    //   type: 'website',
-    // },
+    openGraph: {
+      title: title,
+      description: settings?.description || "Transforming spaces with thoughtful design and craftsmanship.",
+      url: `https://${process.env.NEXT_PUBLIC_DOMAIN}`,
+      siteName: title,
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: "Warm, functional interior space",
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
     alternates: {
       types: {
         'application/rss+xml': `https://${process.env.NEXT_PUBLIC_DOMAIN}/feed.xml`,
