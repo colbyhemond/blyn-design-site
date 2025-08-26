@@ -13,6 +13,11 @@ export default function ProjectDetailClient({ project }) {
     url: g?.asset?.url,
     alt: g?.alt || project.title,
   })).filter(g => !!g.url)
+console.log('beforePhotos', project)
+  const beforePhotos = (project.beforePhotos && project.beforePhotos.length ? project.beforePhotos : []).map(g => ({
+    url: g?.asset?.url,
+    alt: g?.alt || project.title,
+  })).filter(g => !!g.url)
 
   const open = (i) => {
     setIdx(i)
@@ -62,7 +67,7 @@ export default function ProjectDetailClient({ project }) {
       {images.length > 0 && (
         <>
           <h2 className="text-2xl font-semibold mb-4  font-libre-baskerville">Gallery</h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 mb-8">
             {images.map((img, i) => (
               <button
                 key={img.url + i}
@@ -78,6 +83,27 @@ export default function ProjectDetailClient({ project }) {
               </button>
             ))}
           </div>
+
+            {/* Before images grid */}
+            {beforePhotos.length > 0 && (<>
+                <h2 className="text-2xl font-semibold mb-4  font-libre-baskerville">Before</h2>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {beforePhotos.map((img, i) => (
+                    <button
+                      key={img.url + i}
+                      className="relative aspect-[4/3] rounded-lg overflow-hidden group"
+                      onClick={() => open(i)}
+                    >
+                      <Image
+                        src={img.url}
+                        alt={img.alt}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                    </button>
+                  ))}
+                </div>
+            </>)}
 
           {/* Lightbox modal */}
           <dialog ref={dlgRef} className="modal">

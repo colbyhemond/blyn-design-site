@@ -50,6 +50,14 @@ const project = {
       description: 'Additional project photos.',
     },
     {
+      name: 'beforePhotos',
+      title: 'Before Photos',
+      type: 'array',
+      of: [{ type: 'imageWithAlt' }],
+      options: { layout: 'grid' },
+      description: 'Before project photos.',
+    },
+    {
       name: 'summary',
       title: 'Summary',
       type: 'text',

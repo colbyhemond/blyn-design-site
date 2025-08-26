@@ -9,7 +9,8 @@ const projectBySlugQuery = `*[_type=="project" && slug.current==$slug][0]{
   summary,
   completedAt,
   "coverImage": coverImage{asset->{url}, alt},
-  "gallery": gallery[]{asset->{url}, alt}
+  "gallery": gallery[]{asset->{url}, alt},
+  "beforePhotos": beforePhotos[]{asset->{url}, alt}
 }`
 
 export async function generateStaticParams() {
