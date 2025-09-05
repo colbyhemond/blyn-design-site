@@ -71,18 +71,18 @@ const Footer = ({
 
         {/* Bottom row */}
         <aside className="flex flex-col md:flex-row md:flex-wrap justify-between items-end w-full gap-4">
-          <p className="pt-4 order-10 mx-auto md:mx-0 lg:order-1 flex-0  min-w-48 justify-start">
+          <p className="pt-4 order-11 mx-auto md:mx-0 lg:order-1 flex-0  min-w-48 justify-start">
             © {new Date().getFullYear()} B. Lyn Design &amp; Co
           </p>
 
-          <div className="flex items-center gap-0 order-12 md:order-5 mx-auto flex-1 justify-center">
+          <div className="flex items-center gap-0 order-10 md:order-5 mx-auto flex-1 justify-center">
             {/* <div>Brought to you by:</div> */}
             <div>
               <Logo />
             </div>
           </div>
 
-          <div className="flex gap-4 items-center order-8 mx-auto md:mx-0 flex-0 min-w-48 md:justify-end">
+          <div className="flex gap-4 items-center order-12 mx-auto md:mx-0 flex-0 min-w-48 justify-center md:justify-end ">
             {/* <ThemePicker /> */}
             <Link href="/admin" className="link link-hover">Admin</Link>
           </div>
