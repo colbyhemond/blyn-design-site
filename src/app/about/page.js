@@ -21,7 +21,6 @@ export const revalidate = 60
 
 export default async function AboutPage() {
   const data = await client.fetch(aboutQuery)
-  console.log(data)
   // Fallbacks so the page never looks empty
   const title = data?.title || 'About B. Lyn Design & Co'
   const hero = {
