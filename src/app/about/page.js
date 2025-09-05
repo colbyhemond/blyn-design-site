@@ -21,7 +21,7 @@ export const revalidate = 60
 
 export default async function AboutPage() {
   const data = await client.fetch(aboutQuery)
-
+  console.log(data)
   // Fallbacks so the page never looks empty
   const title = data?.title || 'About B. Lyn Design & Co'
   const hero = {
@@ -30,13 +30,18 @@ export default async function AboutPage() {
       data?.hero?.subhead ||
       'With a unique blend of healthcare and design expertise, we create warm, functional spaces where safety meets style.',
     imageUrl:
-      data?.hero?.image?.asset?.url ||
+      data?.hero?.image?.asset 
+      ? urlForImage(data.hero.image.asset)
+        .width(2400)
+        .height(900)
+        .fit('scale')
+        .url() :
       'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=80',
     imageAlt: data?.hero?.image?.alt || 'Warm, functional interior space',
     headshot: data?.headshot?.asset
     ? urlForImage(data.headshot.asset)
-        .width(300)
-        .height(300)
+        .width(900)
+        .height(900)
         .fit('crop')
         .url()
     : null,
