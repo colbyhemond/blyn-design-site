@@ -34,7 +34,7 @@ export default async function AboutPage() {
       ? urlForImage(data.hero.image.asset)
         .width(2400)
         .height(900)
-        .fit('scale')
+        .fit('crop')
         .url() :
       'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=80',
     imageAlt: data?.hero?.image?.alt || 'Warm, functional interior space',
