@@ -17,7 +17,7 @@ export default function ProjectDetailClient({ project }) {
     url: g?.asset?.url,
     alt: g?.alt || project.title,
   })).filter(g => !!g.url)
-console.log('beforePhotos', project)
+
   const beforePhotos = (project.beforePhotos && project.beforePhotos.length ? project.beforePhotos : []).map(g => ({
     url: g?.asset?.url,
     alt: g?.alt || project.title,

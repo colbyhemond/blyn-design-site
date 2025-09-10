@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 const items = [
   { label: 'Certified', detail: 'E‑design, Staging/Redesign, Styling' },
   { label: 'Insured', detail: 'Professional & General Liability' },
-  { label: 'Experience', detail: 'Senior Living Communities' },
 ]
 
 export default function CredentialsStrip() {
