@@ -5,10 +5,14 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'react-feather'
 import { CTABand } from './CTABand'
+import LightBoxModal from './LightboxModal'
 
 export default function ProjectDetailClient({ project }) {
   const dlgRef = useRef(null)
+  const dlgRef2 = useRef(null)
+  
   const [idx, setIdx] = useState(0)
+  const [idxBefore, setIdxBefore] = useState(0)
   const images = (project.gallery && project.gallery.length ? project.gallery : []).map(g => ({
     url: g?.asset?.url,
     alt: g?.alt || project.title,
@@ -24,12 +28,21 @@ console.log('beforePhotos', project)
     dlgRef.current?.showModal?.()
     document.body.style.overflow = 'hidden'
   }
+  const openBefore = (i) => {
+    setIdxBefore(i)
+    dlgRef2.current?.showModal?.()
+    document.body.style.overflow = 'hidden'
+  }
   const close = () => {
     dlgRef.current?.close?.()
+    dlgRef2.current?.close?.()
     document.body.style.overflow = ''
   }
   const prev = () => setIdx((i) => (i - 1 + images.length) % images.length)
   const next = () => setIdx((i) => (i + 1) % images.length)
+
+  const prevBefore = () => setIdxBefore((i) => (i - 1 + beforePhotos.length) % beforePhotos.length)
+  const nextBefore = () => setIdxBefore((i) => (i + 1) % beforePhotos.length)
 
   const getProjecTypeText = (type) => {
     switch (type) {
@@ -101,7 +114,7 @@ console.log('beforePhotos', project)
                     <button
                       key={img.url + i}
                       className="relative aspect-[4/3] rounded-lg overflow-hidden group"
-                      onClick={() => open(i)}
+                      onClick={() => openBefore(i)}
                     >
                       <Image
                         src={img.url}
@@ -115,7 +128,23 @@ console.log('beforePhotos', project)
             </>)}
 
           {/* Lightbox modal */}
-          <dialog ref={dlgRef} className="modal">
+          <LightBoxModal
+            dlgRef={dlgRef}
+            images={images}
+            idx={idx}
+            close={close}
+            prev={prev}
+            next={next}
+          />
+          <LightBoxModal
+            dlgRef={dlgRef2}
+            images={beforePhotos}
+            idx={idxBefore}
+            close={close}
+            prev={prevBefore}
+            next={nextBefore}
+          />
+          {/* <dialog ref={dlgRef} className="modal">
             <div className="modal-box p-2 max-w-5xl">
               <div className="relative">
                 {images[idx] && (
@@ -129,7 +158,6 @@ console.log('beforePhotos', project)
                   </div>
                 )}
 
-                {/* Controls */}
                 {images.length > 1 && (
                   <>
                     <button className="btn btn-circle absolute left-2 top-1/2 -translate-y-1/2" onClick={prev}>
@@ -148,7 +176,7 @@ console.log('beforePhotos', project)
             <form method="dialog" className="modal-backdrop">
               <button aria-label="Close" onClick={close}>close</button>
             </form>
-          </dialog>
+          </dialog> */}
         </>
       )}
     </section>
