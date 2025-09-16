@@ -19,7 +19,7 @@ const sanityClient = createClient({
 
 const getHtml = (email, name, message, phone, projectType) => {
   const html = `
-    <p>** This is a Contact form submission from https://blyndesign.com/contact **</p>
+    <p>** This is a Contact form submission from https://www.blyndesign.com/contact **</p>
     <table>
         <tr>
             <td><strong>Email:</strong></td>
