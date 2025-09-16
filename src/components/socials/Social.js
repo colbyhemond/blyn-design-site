@@ -7,7 +7,7 @@ const SocialIcon = ({name}) => {
             return (
                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
-                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns="https://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 576 512">
                         <path
@@ -19,7 +19,7 @@ const SocialIcon = ({name}) => {
             return (
                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
-                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns="https://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 640 512">
                         <path
@@ -32,7 +32,7 @@ const SocialIcon = ({name}) => {
             return(
                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
-                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns="https://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 496 512">
                         <path
@@ -46,7 +46,7 @@ const SocialIcon = ({name}) => {
 
                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 320 512">
                         <path
@@ -59,7 +59,7 @@ const SocialIcon = ({name}) => {
             return (
                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 448 512">
                     <path
@@ -71,7 +71,7 @@ const SocialIcon = ({name}) => {
             return (
                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 488 512">
                     <path
@@ -84,7 +84,7 @@ const SocialIcon = ({name}) => {
 
                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 448 512">
                     <path
@@ -97,7 +97,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 496 512">
             <path
@@ -109,7 +109,7 @@ const SocialIcon = ({name}) => {
         return (
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 448 512">
             <path
@@ -122,7 +122,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 384 512">
             <path
@@ -135,7 +135,7 @@ const SocialIcon = ({name}) => {
         return (
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 496 512">
             <path
@@ -149,7 +149,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 576 512">
             <path
@@ -162,7 +162,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 448 512">
             <path
@@ -175,7 +175,7 @@ const SocialIcon = ({name}) => {
         return (
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 512 512">
             <path
@@ -188,7 +188,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 448 512">
             <path
@@ -201,7 +201,7 @@ const SocialIcon = ({name}) => {
         return (
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 512 512">
             <path
@@ -215,7 +215,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 512 512">
             <path
@@ -230,7 +230,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 512 512">
             <path
@@ -245,7 +245,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 512 512">
             <path
@@ -259,7 +259,7 @@ const SocialIcon = ({name}) => {
 
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 448 512">
             <path
@@ -272,7 +272,7 @@ const SocialIcon = ({name}) => {
             return (
             <span className="[&>svg]:h-5 [&>svg]:w-5">
             <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 512 512">
             <path
